@@ -1,0 +1,27 @@
+{% extends 'include/base.html' %}
+{% load static %}
+{% block title %}  {% endblock %}
+
+{% block content %}
+
+<div class="navbar-collapse collapse">
+<!-- Left nav -->
+<ul class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  {% for t in top_level_cats %}
+    <li><a href="{% url 'shop:category' hierarchy=t.name %}">{{ t.name }} <span class="caret"></span></a>
+      {% if t.children.count > 0 %}
+        <ul class="dropdown-menu">
+         {% for sub in t.children.all|slice:":10" %}
+          <li><a href="{% url 'shop:category' hierarchy=sub.name %}">{{ sub.name }}</a></li>
+         {% endfor %}
+        </ul>
+      {% endif %}
+      </li>
+   {% endfor %}
+  <li><a href="index.html">About</a></li>
+  <li><a href="index.html">Contact</a></li>
+</ul>
+</div><!--/.nav-collapse -->
+
+{% endblock %}

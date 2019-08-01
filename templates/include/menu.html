@@ -1,0 +1,38 @@
+<!-- menu -->
+  <section id="menu">
+    <div class="container">
+      <div class="menu-area">
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse">
+            <!-- Left nav -->
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              {% for kat in Categories %}
+                <li><a href="#">{{ kat.name }} <span class="caret"></span></a>
+                  {% if kat.children.count > 0 %}
+                    <ul class="dropdown-menu">
+                     {% for sub in kat.children.all|slice:":10" %}
+                      <li><a href="#">{{ sub.name }}</a></li>
+                     {% endfor %}
+                    </ul>
+                  {% endif %}
+                  </li>
+               {% endfor %}
+              <li><a href="index.html">About</a></li>
+              <li><a href="index.html">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / menu -->
