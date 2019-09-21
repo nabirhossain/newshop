@@ -1,1 +1,3 @@
-# newshop
+# Django E-commerce Project
+
+
