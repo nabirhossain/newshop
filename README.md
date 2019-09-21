@@ -2,4 +2,4 @@
 
 [Shop link](https://amarshop.herokuapp.com/)
 
-![GitHub Logo](/static/img/fashion-banner.jpg)
+![main-page](/static/img/Screenshot_1.png)
